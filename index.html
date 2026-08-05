@@ -1,198 +1,346 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICC World Test Championship 2025-2027</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICC Men's Cricket World Cup 2027 Schedule</title>
+    <style>
+        :root {
+            --bg-color: #0b0213;
+            --card-bg: #140824;
+            --header-red: #a80038;
+            --sub-header: #380020;
+            --text-gold: #ffcc00;
+            --text-white: #ffffff;
+            --border-color: #2e114d;
+            --hover-bg: #1f0d36;
+        }
 
-<style>
-body{
-margin:0;
-padding:20px;
-background:#f2f2f2;
-font-family:Arial,Helvetica,sans-serif;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-.container{
-max-width:900px;
-margin:auto;
-background:#fff;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-.header{
-background:#000;
-color:#fff;
-text-align:center;
-padding:20px;
-}
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--border-color);
+        }
 
-.header h1{
-margin:0;
-font-size:38px;
-}
+        /* Main Header */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--header-red);
+        }
 
-.header h2{
-margin:5px 0 0;
-font-size:22px;
-color:#d4af37;
-}
+        .header h1 {
+            color: var(--text-gold);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+        }
 
-table{
-width:100%;
-border-collapse:collapse;
-}
+        .header h2 {
+            font-size: 1.2rem;
+            color: var(--text-white);
+            letter-spacing: 3px;
+        }
 
-thead{
-background:#111;
-color:#fff;
-}
+        /* Section Banner */
+        .section-title {
+            background: linear-gradient(90deg, #800028, #c7004c, #800028);
+            color: var(--text-gold);
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
 
-th,td{
-padding:18px;
-text-align:center;
-font-size:22px;
-border-bottom:1px solid #ddd;
-}
+        .gap-banner {
+            background-color: #1a001a;
+            color: var(--text-gold);
+            text-align: center;
+            padding: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid var(--header-red);
+            border-top: none;
+        }
 
-tbody tr:hover{
-background:#f7f7f7;
-}
+        /* Schedule Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
 
-.team{
-font-weight:bold;
-color:#002366;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+            font-size: 0.88rem;
+        }
 
-.points{
-padding:20px;
-background:#fafafa;
-font-size:22px;
-line-height:1.8;
-}
+        th, td {
+            padding: 8px 10px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
 
-.points h3{
-margin-top:0;
-color:#000080;
-font-size:28px;
-}
-</style>
+        th {
+            background-color: var(--sub-header);
+            color: var(--text-gold);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        tr:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .team-cell {
+            font-weight: bold;
+            color: var(--text-white);
+        }
+
+        .vs-cell {
+            color: var(--text-gold);
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        /* Knockouts Section */
+        .knockouts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .match-card {
+            background: #1c0a33;
+            border: 1px solid var(--header-red);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .match-card h3 {
+            color: var(--text-gold);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .match-card .teams {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .match-card .details {
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        /* Footer / Notes */
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 25px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.5rem; }
+            .header h2 { font-size: 0.9rem; }
+            th, td { font-size: 0.75rem; padding: 6px 4px; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
+    <div class="header">
+        <h1>ICC Men's Cricket World Cup 2027</h1>
+        <h2>SA • IND • BAN • SL • 2027</h2>
+    </div>
 
-<div class="header">
-<h1>ICC WORLD TEST CHAMPIONSHIP</h1>
-<h2>2025–2027</h2>
-</div>
+    <!-- SUPER SERIES -->
+    <div class="section-title">Super Series (3 Matches)</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Match</th>
+                    <th>Team 1</th>
+                    <th>VS</th>
+                    <th>Team 2</th>
+                    <th>Venue</th>
+                    <th>Gap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>SUPER SERIES 1</td><td class="team-cell">ZIMBABWE</td><td class="vs-cell">VS</td><td class="team-cell">NETHERLANDS</td><td>GALLE</td><td>—</td></tr>
+                <tr><td>2</td><td>SUPER SERIES 2</td><td class="team-cell">NETHERLANDS</td><td class="vs-cell">VS</td><td class="team-cell">SCOTLAND</td><td>DHAKA</td><td>1 DAY GAP</td></tr>
+                <tr><td>3</td><td>SUPER SERIES 3</td><td class="team-cell">SCOTLAND</td><td class="vs-cell">VS</td><td class="team-cell">ZIMBABWE</td><td>CAPE TOWN</td><td>1 DAY GAP</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="gap-banner">GAP AFTER SUPER SERIES : 2 DAYS</div>
 
-<table>
+    <!-- LEAGUE MATCHES -->
+    <div class="section-title">League Matches (30 Matches)</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Match</th>
+                    <th>Team 1</th>
+                    <th>VS</th>
+                    <th>Team 2</th>
+                    <th>Venue</th>
+                    <th>Gap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>1</td><td class="team-cell">SOUTH AFRICA</td><td class="vs-cell">VS</td><td class="team-cell">AUSTRALIA</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>2</td><td>2</td><td class="team-cell">INDIA</td><td class="vs-cell">VS</td><td class="team-cell">TBC</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>3</td><td>3</td><td class="team-cell">ENGLAND</td><td class="vs-cell">VS</td><td class="team-cell">SRI LANKA</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>4</td><td>4</td><td class="team-cell">NEW ZEALAND</td><td class="vs-cell">VS</td><td class="team-cell">WEST INDIES</td><td>DHAKA</td><td>NO GAP</td></tr>
+                <tr><td>5</td><td>5</td><td class="team-cell">PAKISTAN</td><td class="vs-cell">VS</td><td class="team-cell">IRELAND</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>6</td><td>6</td><td class="team-cell">AFGHANISTAN</td><td class="vs-cell">VS</td><td class="team-cell">BANGLADESH</td><td>CHENNAI</td><td>NO GAP</td></tr>
+                <tr><td>7</td><td>7</td><td class="team-cell">INDIA</td><td class="vs-cell">VS</td><td class="team-cell">SOUTH AFRICA</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>8</td><td>8</td><td class="team-cell">AUSTRALIA</td><td class="vs-cell">VS</td><td class="team-cell">PAKISTAN</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>9</td><td>9</td><td class="team-cell">SRI LANKA</td><td class="vs-cell">VS</td><td class="team-cell">BANGLADESH</td><td>AHMEDABAD</td><td>NO GAP</td></tr>
+                <tr><td>10</td><td>10</td><td class="team-cell">AFGHANISTAN</td><td class="vs-cell">VS</td><td class="team-cell">NEW ZEALAND</td><td>KOLKATA</td><td>NO GAP</td></tr>
+                <tr><td>11</td><td>11</td><td class="team-cell">IRELAND</td><td class="vs-cell">VS</td><td class="team-cell">AUSTRALIA</td><td>DELHI</td><td>NO GAP</td></tr>
+                <tr><td>12</td><td>12</td><td class="team-cell">ENGLAND</td><td class="vs-cell">VS</td><td class="team-cell">WEST INDIES</td><td>MUMBAI</td><td>NO GAP</td></tr>
+                <tr><td>13</td><td>13</td><td class="team-cell">INDIA</td><td class="vs-cell">VS</td><td class="team-cell">PAKISTAN</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>14</td><td>14</td><td class="team-cell">SOUTH AFRICA</td><td class="vs-cell">VS</td><td class="team-cell">TBC</td><td>CAPE TOWN</td><td>1 DAY GAP</td></tr>
+                <tr><td>15</td><td>15</td><td class="team-cell">WEST INDIES</td><td class="vs-cell">VS</td><td class="team-cell">SRI LANKA</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>16</td><td>16</td><td class="team-cell">BANGLADESH</td><td class="vs-cell">VS</td><td class="team-cell">NEW ZEALAND</td><td>AHMEDABAD</td><td>NO GAP</td></tr>
+                <tr><td>17</td><td>17</td><td class="team-cell">IRELAND</td><td class="vs-cell">VS</td><td class="team-cell">TBC</td><td>CHENNAI</td><td>NO GAP</td></tr>
+                <tr><td>18</td><td>18</td><td class="team-cell">AFGHANISTAN</td><td class="vs-cell">VS</td><td class="team-cell">ENGLAND</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>19</td><td>19</td><td class="team-cell">INDIA</td><td class="vs-cell">VS</td><td class="team-cell">AUSTRALIA</td><td>DHAKA</td><td>NO GAP</td></tr>
+                <tr><td>20</td><td>20</td><td class="team-cell">SOUTH AFRICA</td><td class="vs-cell">VS</td><td class="team-cell">PAKISTAN</td><td>CAPE TOWN</td><td>1 DAY GAP</td></tr>
+                <tr><td>21</td><td>21</td><td class="team-cell">BANGLADESH</td><td class="vs-cell">VS</td><td class="team-cell">ENGLAND</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>22</td><td>22</td><td class="team-cell">AFGHANISTAN</td><td class="vs-cell">VS</td><td class="team-cell">SRI LANKA</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>23</td><td>23</td><td class="team-cell">WEST INDIES</td><td class="vs-cell">VS</td><td class="team-cell">AFGHANISTAN</td><td>AHMEDABAD</td><td>NO GAP</td></tr>
+                <tr><td>24</td><td>24</td><td class="team-cell">INDIA</td><td class="vs-cell">VS</td><td class="team-cell">IRELAND</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>25</td><td>25</td><td class="team-cell">AUSTRALIA</td><td class="vs-cell">VS</td><td class="team-cell">TBC</td><td>DHAKA</td><td>NO GAP</td></tr>
+                <tr><td>26</td><td>26</td><td class="team-cell">IRELAND</td><td class="vs-cell">VS</td><td class="team-cell">SOUTH AFRICA</td><td>DELHI</td><td>NO GAP</td></tr>
+                <tr><td>27</td><td>27</td><td class="team-cell">PAKISTAN</td><td class="vs-cell">VS</td><td class="team-cell">TBC</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>28</td><td>28</td><td class="team-cell">WEST INDIES</td><td class="vs-cell">VS</td><td class="team-cell">BANGLADESH</td><td>DHAKA</td><td>1 DAY GAP</td></tr>
+                <tr><td>29</td><td>29</td><td class="team-cell">SRI LANKA</td><td class="vs-cell">VS</td><td class="team-cell">NEW ZEALAND</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>30</td><td>30</td><td class="team-cell">NEW ZEALAND</td><td class="vs-cell">VS</td><td class="team-cell">ENGLAND</td><td>GALLE</td><td>1 DAY GAP</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="gap-banner">GAP AFTER LEAGUE MATCHES : 2 DAYS</div>
 
-<thead>
-<tr>
-<th>POS</th>
-<th>TEAM</th>
-<th>PLD</th>
-<th>PTS</th>
-<th>PCT</th>
-</tr>
-</thead>
+    <!-- SUPER 7 -->
+    <div class="section-title">Super 7 (21 Matches)</div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Match</th>
+                    <th>Team 1</th>
+                    <th>VS</th>
+                    <th>Team 2</th>
+                    <th>Venue</th>
+                    <th>Gap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>1</td><td class="team-cell">TBC 7</td><td class="vs-cell">VS</td><td class="team-cell">TBC 4</td><td>JOHANNESBURG</td><td>2 DAY GAP</td></tr>
+                <tr><td>2</td><td>2</td><td class="team-cell">TBC 3</td><td class="vs-cell">VS</td><td class="team-cell">TBC 6</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>3</td><td>3</td><td class="team-cell">TBC 5</td><td class="vs-cell">VS</td><td class="team-cell">TBC 1</td><td>DHAKA</td><td>NO GAP</td></tr>
+                <tr><td>4</td><td>4</td><td class="team-cell">TBC 7</td><td class="vs-cell">VS</td><td class="team-cell">TBC 2</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>5</td><td>5</td><td class="team-cell">TBC 4</td><td class="vs-cell">VS</td><td class="team-cell">TBC 1</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>6</td><td>6</td><td class="team-cell">TBC 5</td><td class="vs-cell">VS</td><td class="team-cell">TBC 3</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>7</td><td>7</td><td class="team-cell">TBC 6</td><td class="vs-cell">VS</td><td class="team-cell">TBC 2</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>8</td><td>8</td><td class="team-cell">TBC 7</td><td class="vs-cell">VS</td><td class="team-cell">TBC 1</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>9</td><td>9</td><td class="team-cell">TBC 4</td><td class="vs-cell">VS</td><td class="team-cell">TBC 5</td><td>DHAKA</td><td>NO GAP</td></tr>
+                <tr><td>10</td><td>10</td><td class="team-cell">TBC 3</td><td class="vs-cell">VS</td><td class="team-cell">TBC 2</td><td>GALLE</td><td>1 DAY GAP</td></tr>
+                <tr><td>11</td><td>11</td><td class="team-cell">TBC 6</td><td class="vs-cell">VS</td><td class="team-cell">TBC 7</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>12</td><td>12</td><td class="team-cell">TBC 1</td><td class="vs-cell">VS</td><td class="team-cell">TBC 3</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>13</td><td>13</td><td class="team-cell">TBC 5</td><td class="vs-cell">VS</td><td class="team-cell">TBC 2</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>14</td><td>14</td><td class="team-cell">TBC 4</td><td class="vs-cell">VS</td><td class="team-cell">TBC 6</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>15</td><td>15</td><td class="team-cell">TBC 7</td><td class="vs-cell">VS</td><td class="team-cell">TBC 5</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>16</td><td>16</td><td class="team-cell">TBC 1</td><td class="vs-cell">VS</td><td class="team-cell">TBC 2</td><td>GALLE</td><td>NO GAP</td></tr>
+                <tr><td>17</td><td>17</td><td class="team-cell">TBC 3</td><td class="vs-cell">VS</td><td class="team-cell">TBC 4</td><td>JOHANNESBURG</td><td>NO GAP</td></tr>
+                <tr><td>18</td><td>18</td><td class="team-cell">TBC 6</td><td class="vs-cell">VS</td><td class="team-cell">TBC 5</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>19</td><td>19</td><td class="team-cell">TBC 7</td><td class="vs-cell">VS</td><td class="team-cell">TBC 3</td><td>CAPE TOWN</td><td>NO GAP</td></tr>
+                <tr><td>20</td><td>20</td><td class="team-cell">TBC 1</td><td class="vs-cell">VS</td><td class="team-cell">TBC 6</td><td>JOHANNESBURG</td><td>1 DAY GAP</td></tr>
+                <tr><td>21</td><td>21</td><td class="team-cell">TBC 2</td><td class="vs-cell">VS</td><td class="team-cell">TBC 4</td><td>GALLE</td><td>NO GAP</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="gap-banner">GAP AFTER SUPER 7 : 2 DAYS</div>
 
-<tbody>
+    <!-- KNOCKOUTS -->
+    <div class="section-title">Knockouts</div>
+    <div class="knockouts-grid">
+        <div class="match-card">
+            <h3>1st Semi Final</h3>
+            <div class="teams">TBC <span class="vs-cell">VS</span> TBC</div>
+            <div class="details">GALLE | 1 DAY GAP</div>
+        </div>
+        <div class="match-card">
+            <h3>2nd Semi Final</h3>
+            <div class="teams">TBC <span class="vs-cell">VS</span> TBC</div>
+            <div class="details">CAPE TOWN | 1 DAY GAP</div>
+        </div>
+        <div class="match-card">
+            <h3>Final</h3>
+            <div class="teams">TBC <span class="vs-cell">VS</span> TBC</div>
+            <div class="details">JOHANNESBURG | 2 DAY GAP</div>
+        </div>
+    </div>
 
-<tr>
-<td>1</td>
-<td class="team">🇦🇺 Aus</td>
-<td>8</td>
-<td>84</td>
-<td>87.50</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td class="team">🇿🇦 SA</td>
-<td>4</td>
-<td>36</td>
-<td>75.00</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td class="team">🇳🇿 NZ</td>
-<td>6</td>
-<td>52</td>
-<td>72.22</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td class="team">🇧🇩 BAN</td>
-<td>4</td>
-<td>28</td>
-<td>58.33</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td class="team">🇮🇳 IND</td>
-<td>6</td>
-<td>36</td>
-<td>50.00</td>
-</tr>
-
-<tr>
-<td>6</td>
-<td class="team">🇱🇰 SL</td>
-<td>4</td>
-<td>20</td>
-<td>41.67</td>
-</tr>
-
-<tr>
-<td>7</td>
-<td class="team">🏴 ENG</td>
-<td>13</td>
-<td>38</td>
-<td>24.36</td>
-</tr>
-
-<tr>
-<td>8</td>
-<td class="team">🇼🇸 WI</td>
-<td>10</td>
-<td>18</td>
-<td>15.00</td>
-</tr>
-
-<tr>
-<td>9</td>
-<td class="team">🇵🇰 PAK</td>
-<td>4</td>
-<td>4</td>
-<td>8.33</td>
-</tr>
-
-</tbody>
-
-</table>
-
-<div class="points">
-<h3>Point System</h3>
-
-✅ 12 Points for a Win<br>
-🤝 6 Points for a Tie<br>
-➖ 4 Points for a Draw<br><br>
-
-<b>Top Two Teams Progress to Final 2027.</b>
-
-</div>
-
+    <div class="footer-note">
+        NOTE: TBC = TEAM TO BE CONFIRMED | ALL MATCHES ARE SUBJECT TO CHANGE
+    </div>
 </div>
 
 </body>
 </html>
+
